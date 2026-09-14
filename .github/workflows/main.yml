@@ -75,11 +75,11 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
 
-          $slnx = Get-ChildItem -Path $env:GITHUB_WORKSPACE -Filter *.slnx -Recurse |
+          $sln = Get-ChildItem -Path $env:GITHUB_WORKSPACE -Filter *.sln -Recurse |
             Select-Object -First 1
 
           if (-not $sln) {
-              Write-Error "No .slnx file found."
+              Write-Error "No .sln file found."
               exit 1
           }
 
