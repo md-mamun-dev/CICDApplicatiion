@@ -16,9 +16,9 @@ env:
 
   ARTIFACT_NAME: WebApi
 
-  APP_POOL_NAME: CICDTestApplicationPool
+  APP_POOL_NAME: aspwebapi6pool
 
-  IIS_PATH: C:\inetpub\wwwroot\CICDApplication
+  IIS_PATH: C:\inetpub\wwwroot\aspwebapi6
 
   BACKUP_PATH: C:\Backups\aspwebapi6
 
@@ -75,16 +75,16 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
 
-          $sln = Get-ChildItem -Path $env:GITHUB_WORKSPACE -Filter *.sln -Recurse |
+          $slnx = Get-ChildItem -Path $env:GITHUB_WORKSPACE -Filter *.slnx -Recurse |
             Select-Object -First 1
 
-          if (-not $sln) {
-              Write-Error "No .sln file found."
+          if (-not $slnx) {
+              Write-Error "No .slnx file found."
               exit 1
           }
 
-          Write-Host "Solution found: $($sln.FullName)"
-          "SOLUTION=$($sln.FullName)" >> $env:GITHUB_ENV
+          Write-Host "Solution found: $($slnx.FullName)"
+          "SOLUTION=$($slnx.FullName)" >> $env:GITHUB_ENV
 
 
       - name: Restore NuGet Packages
