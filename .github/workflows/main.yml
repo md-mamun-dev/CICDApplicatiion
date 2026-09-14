@@ -75,7 +75,7 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
 
-          $sln = Get-ChildItem -Path $env:GITHUB_WORKSPACE -Filter *.sln -Recurse |
+          $slnx = Get-ChildItem -Path $env:GITHUB_WORKSPACE -Filter *.slnx -Recurse |
             Select-Object -First 1
 
           if (-not $sln) {
