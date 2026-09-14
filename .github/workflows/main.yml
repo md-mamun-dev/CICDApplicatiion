@@ -79,7 +79,7 @@ jobs:
             Select-Object -First 1
 
           if (-not $sln) {
-              Write-Error "No .sln file found."
+              Write-Error "No .slnx file found."
               exit 1
           }
 
