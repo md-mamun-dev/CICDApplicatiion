@@ -17,6 +17,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/", () => "TestApplication is running.");
+app.MapGet("/", () => "TestApplication is running today.");
 
 app.Run();
